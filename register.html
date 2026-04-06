@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>สมัครสมาชิก | Rick Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="display:flex; justify-content:center; align-items:center; height:100vh; background:#000; color:#fff;">
+    <form action="/register" method="POST" style="background:#1a1a1a; padding:40px; border:1px solid #333; width:350px;">
+        <h2 style="margin-bottom:20px; text-align:center;">สมัครสมาชิก</h2>
+        <input type="email" name="email" placeholder="อีเมล" required style="display:block; margin-bottom:15px; padding:12px; width:100%; background:#222; border:1px solid #444; color:#fff;">
+        <input type="password" name="password" placeholder="รหัสผ่าน" required style="display:block; margin-bottom:25px; padding:12px; width:100%; background:#222; border:1px solid #444; color:#fff;">
+        <button type="submit" class="btn-start" style="width:100%; padding:12px; cursor:pointer;">ยืนยันการสมัคร</button>
+        <p style="margin-top:15px; font-size:12px; text-align:center;"><a href="/" style="color:#777; text-decoration:none;">กลับหน้าหลัก</a></p>
+    </form>
+</body>
+</html>
+
+
