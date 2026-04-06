@@ -1,1 +1,40 @@
+<!DOCTYPE html> 
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruction Media Online | Rick Project</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;500&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <nav>
+        <div class="nav-links">
+            <div class="menu-item active">หน้าหลัก</div>
+            <div class="menu-item dropdown">เนื้อหาในรายวิชา ▾
+                <ul class="submenu">
+                    <li><a href="#">บทที่ 1: พื้นฐานการเขียนโปรแกรม</a></li>
+                    <li><a href="#">บทที่ 2: โครงสร้างข้อมูลและอัลกอริทึม</a></li>
+                    <li><a href="#">บทที่ 3: การพัฒนาเว็บแอปพลิเคชัน</a></li>
+                    <li><a href="#">บทที่ 4: การพัฒนาแอปพลิเคชันมือถือ</a></li>
+                    <li><a href="#">บทที่ 5: การพัฒนาเกม</a></li>
+                </ul>
+            </div>
+            <div class="menu-item">ผู้พัฒนา</div>
+        </div>
+        <div class="online-lessons">ONLINE LESSONS</div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>INSTRUCTION MEDIA ONLINE</h1>
+            <p>เริ่มต้นการเรียนรู้สู่โลกแห่งข้อมูล</p>
+            <a href="{{ url_for('login') }}"><button class="btn-start">เข้าสู่ระบบ</button></a>
+        </div>
+    </header>
+
+</body>
+</html>
