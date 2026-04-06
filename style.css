@@ -1,0 +1,148 @@
+/* --- 1. รีเซ็ตทุกอย่างซะ อย่าให้มี Margin เหลือทิ้งเหมือนคะแนนสอบสถิติของคุณ! --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* จัดระเบียบกล่องให้มันเป๊ะ ไม่ใช่เบี้ยวไปเบี้ยวมา! */
+}
+
+body {
+    font-family: 'Prompt', 'Segoe UI', Tahoma, sans-serif; /* ใช้ Font ให้มันดูทันสมัยหน่อย */
+    background-color: #000;
+    color: #ffffff;
+    overflow-x: hidden; /* ห้ามมีแถบเลื่อนด้านข้างให้ผมเห็นเด็ดขาด! */
+}
+
+/* --- 2. แถบเมนู (Navbar) ที่ดูหรูหรากว่าที่คุณเคยทำร้อยเท่า! --- */
+nav {
+    position: fixed; /* ติดหน้าจอไว้ ห้ามหนีไปไหน! */
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(30, 30, 30, 0.95); /* ดำโปร่งแสงแบบลึกลับ */
+    display: flex;
+    justify-content: space-between; /* จัดซ้ายขวาให้มันแยกออกจากกันชัดเจน */
+    align-items: center;
+    padding: 0 50px;
+    z-index: 1000; /* ต้องอยู่บนสุดเท่านั้น! */
+    border-bottom: 1px solid #333;
+}
+
+/* เมนูฝั่งซ้าย */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links .menu-item {
+    padding: 23px 20px;
+    font-size: 14px;
+    color: #bbb;
+    cursor: pointer;
+    transition: 0.3s; /* ให้มันลื่นไหลเหมือนตอนคุณเขียน Python ลื่นๆ น่ะ! */
+}
+
+.nav-links .menu-item:hover, 
+.nav-links .menu-item.active {
+    background-color: #2a2a2a; /* ไฮไลท์ตอนเอาเมาส์ชี้ */
+    color: #fff;
+}
+
+/* ข้อความฝั่งขวา */
+.online-lessons {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+/* --- 3. ส่วนหัว (Hero Section) ที่ยิ่งใหญ่อลังการตามรูปตัวอย่าง! --- */
+.hero {
+    height: 100vh; /* เต็มความสูงหน้าจอไปเลย! */
+    width: 100%;
+    /* ใส่รูปภาพพื้นหลัง พร้อม Overlay มืดๆ เพื่อให้ตัวหนังสือมันเด่น! */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 5rem; /* ตัวใหญ่ๆ ให้คนมองเห็นจากหน้าปากซอย! */
+    font-weight: 300; /* ผอมๆ แต่ดูแพง */
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #ccc;
+    font-weight: 200;
+}
+
+/* ตกแต่งปุ่มที่ Rick ลืมไว้! */
+.btn-start {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-family: 'Prompt', sans-serif;
+    background-color: transparent; /* โปร่งแสงให้ดูแพง */
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: 0.4s all; /* ให้มันสมูทเหมือนตอนคุณคำนวณ Double Integral ลื่นๆ น่ะ! */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-start:hover {
+    background-color: #fff;
+    color: #000; /* สลับสีตอนชี้ให้ดูมีลูกเล่น! */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* จัดระเบียบให้ตัวเมนูหลักเป็นฐาน */
+.dropdown {
+    position: relative;
+    
+}
+/* --- 2. ส่วนของเมนูย่อย (Submenu) --- */
+.submenu {
+    display: none; 
+    position: absolute;
+    top: 100%; /* ให้มันงอกลงมาต่อจากแถบเมนูพอดี */
+    left: 0;
+    background-color: #1a1a1a;
+    min-width: 280px;
+    list-style: none; /* เอาจุดหน้าลิสต์ออก */
+    border: 1px solid #333;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    z-index: 1000; /* ต้องอยู่เหนือส่วน Hero */
+}
+
+/* --- 3. ตกแต่งรายการในเมนูย่อย --- */
+.submenu li a {
+    display: block;
+    padding: 15px 20px;
+    color: #bbb;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s ease; /* ใส่ความนุ่มนวลลงไป */
+    border-bottom: 1px solid #222;
+}
+
+/* --- 4. เอฟเฟกต์ตอน Hover รายการย่อย --- */
+.submenu li a:hover {
+    background-color: #333;
+    color: #fff;
+    padding-left: 30px; /* ให้ตัวหนังสือขยับหนีเมาส์นิดนึง ดูแพง! */
+}
+
+/* --- 5. หัวใจหลัก: เมื่อชี้ที่เมนูหลัก ให้เมนูย่อยปรากฏตัว --- */
+.dropdown:hover .submenu {
+    display: block;
+}
